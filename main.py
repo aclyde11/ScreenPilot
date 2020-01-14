@@ -2,6 +2,7 @@ import argparse
 import io
 import pickle
 from functools import partial
+
 import cairosvg
 import numpy as np
 import pandas as pd
@@ -49,6 +50,7 @@ def compute_descript(smile, imputer_dict=None):
     if imputer_dict is not None:
         res = imputer_dict['scaler'].transform(imputer_dict['imputer'].transform(res))
     return res.flatten().astype(np.float32)
+
 
 def smiles_to_image(mol, molSize=(128, 128), kekulize=True, mol_name='', mol_computed=False):
     if not mol_computed:
