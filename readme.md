@@ -1,11 +1,21 @@
+##
 
-Set up a conda env 
 
-```shell script
-conda install -c rdkit -c mordred-descriptor mordred
-```
+1. Generate ligand 
+| |
+| |
+| |
+2. 2d sim to known kinase inhibitors (set used)
+- crawl away from distribution
 
-Train contains some smiles to play aroudn with. The models are fake here
-since loading up the real models would take some time to do. 
+score = max(sim(this_ligand, i))
 
-This interface is exactly the same however.
+if score < delta:
+
+3. ROCS to Kinase Inhibit
+- generate conformers
+- score  = max(sim(conf, j))
+- j is in pdb structures 
+- Which scores to use? TanimotoCombo
+
+2. Check unique to and  
